@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모니카룸 블랙프라이데이 카카오 메시지 발송 레퍼런스</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <style>
+      body {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 32px 100px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Noto Sans KR', sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .cover {
+        text-align: center;
+        padding: 80px 0;
+        background: linear-gradient(135deg, #6F6054, #8B7355);
+        color: white;
+        margin: -32px -100px 60px -100px;
+      }
+
+      .cover h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+      }
+
+      .cover .subtitle {
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 32px;
+      }
+
+      .cover .period {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+
+      .cover .portfolio-label {
+        font-size: 14px;
+        font-weight: 300;
+        opacity: 0.8;
+      }
+
+      .section {
+        margin-bottom: 60px;
+      }
+
+      .section h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 32px;
+        border-bottom: 3px solid #6F6054;
+        padding-bottom: 8px;
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .overview-item h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #6F6054;
+        margin-bottom: 16px;
+      }
+
+      .overview-item p {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+
+      .timeline-item {
+        background: #f8f9fa;
+        padding: 24px;
+        border-radius: 8px;
+        border-left: 4px solid #6F6054;
+      }
+
+      .timeline-item h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .timeline-item .period {
+        font-size: 14px;
+        color: #6F6054;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+
+      .message-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 32px;
+        margin-bottom: 32px;
+      }
+
+      .message-card h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 24px;
+      }
+
+      .message-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .message-info h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #6F6054;
+        margin-bottom: 8px;
+      }
+
+      .message-info p {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .message-info ul {
+        font-size: 14px;
+        padding-left: 16px;
+      }
+
+      .message-info ul li {
+        margin-bottom: 4px;
+      }
+
+      .type-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .type-card {
+        background: #f8f9fa;
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+
+      .type-card h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .type-card ul {
+        font-size: 14px;
+        padding-left: 16px;
+        margin-bottom: 16px;
+      }
+
+      .type-card .examples {
+        font-size: 13px;
+        color: #666;
+        font-style: italic;
+      }
+
+      .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+
+      .specs-item h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+      }
+
+      .specs-item ul {
+        font-size: 14px;
+        padding-left: 16px;
+      }
+
+      .specs-item ul li {
+        margin-bottom: 8px;
+      }
+
+      .closing {
+        text-align: center;
+        padding: 60px 0;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .closing h2 {
+        font-size: 36px;
+        font-weight: 300;
+        color: #333;
+        margin-bottom: 24px;
+        border: none;
+      }
+
+      .closing p {
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body style="">
+    <div class="cover">
+      <h1>MONICA ROOM BLACK FRIDAY</h1>
+      <div class="subtitle">블랙 프라이데이 발송 레퍼런스</div>
+      <div class="period">2025.10.27 - 12.01</div>
+      <div class="portfolio-label">BlumnAI Message Campaign Portfolio</div>
+    </div>
+
+    <div class="section">
+      <h2>PROJECT OVERVIEW</h2>
+      <div class="overview-grid">
+        <div class="overview-item">
+          <h3>Client</h3>
+          <p><strong>모니카룸 (MONICA ROOM)</strong></p>
+          <p>대한민국 여성 패션 브랜드</p>
+
+          <h3 style="margin-top: 32px">Campaign</h3>
+          <p>2025 Black Friday Promotion</p>
+        </div>
+        <div class="overview-item">
+          <h3>Period</h3>
+          <p>2025.10.27 - 12.01 (36일간)</p>
+
+          <h3 style="margin-top: 32px">Channel</h3>
+          <p style="background-color: rgb(255, 255, 255);">&nbsp;• 카카오 친구톡 (Kakao Friend Talk)&nbsp;</p><p style="background-color: rgb(255, 255, 255);">&nbsp;• 카카오 알림톡 (Kakao Alimtalk)&nbsp;</p><p style="background-color: rgb(244, 218, 88);">&nbsp;• BSA 발송 (Business Solution Alimtalk)&nbsp;</p><p style="background-color: rgb(244, 218, 88);">&nbsp; &nbsp;블룸에이아이 : 마케팅 수신 동의자 리스트 편집</p>
+
+          <h3 style="margin-top: 32px">Objective</h3>
+          <p>블랙프라이데이 프로모션 기간 동안 고객 세그먼트별 맞춤 메시지 발송 제안</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>CAMPAIGN TIMELINE</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>STEP1: Pre-Launch</h3>
+          <div class="period">10/27 - 11/10 [종료]</div>
+          <p style="background-color: rgb(204, 204, 204);">사전 예고 및 관심도 환기 시작하기&nbsp; &nbsp; &nbsp; [종료]</p>
+        </div>
+        <div class="timeline-item">
+          <h3>STEP2: Main Event</h3>
+          <div class="period" style="background-color: rgb(244, 218, 88)">11/11 - 11/24</div>
+          <p>본 프로모션 및 집중 발송 기간</p>
+        </div>
+        <div class="timeline-item">
+          <h3>STEP3: Final Push</h3>
+          <div class="period" style="background-color: rgb(244, 218, 88)">11/25 - 12/01</div>
+          <p>리마인드 및 최종 마감 알림</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>모니카룸 발송 전략 제안</h2>
+      <p style="font-size: 16px; color: #666; margin-bottom: 40px">
+        알림톡 쿠폰 4종을 기본으로 활용하고, 이후 단계별 친구톡 메시지로 전환율을 극대화하는 전략을 제안합니다.
+      </p>
+
+      <div style="
+          background: linear-gradient(135deg, #6F6054, #8B7355);
+          padding: 32px;
+          border-radius: 12px;
+          color: white;
+          margin-bottom: 40px;
+        ">
+        <h3 style="color: white; margin-bottom: 20px; font-size: 24px">📊 발송 전략 요약</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px">
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 16px; border-radius: 8px">
+            <strong>STEP 1: 알림톡 4종 준비</strong><br>11/21 ~ 11/29 순차 발송
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 16px; border-radius: 8px">
+            <strong>STEP 2: 친구톡 4종 준비</strong><br>11/15 ~ 11/26 주요 시점 발송
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 16px; border-radius: 8px">
+            <strong>STEP 3: 와이드이미지형 레퍼런스</strong><br>친구톡 가장 많은 발송
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 16px; border-radius: 8px">
+            <strong>STEP 4: 일반이미지형 레퍼런스</strong><br>친구톡 대세 발송 템플릿
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3 style="margin-bottom: 24px">STEP 1: 시크릿 쿠폰 발급 (알림톡)</h3>
+        <img src="https://page.gensparksite.com/v1/base64_upload/6e25d306112699daadec32f8b5ff2d12" alt="모니카룸 알림톡 쿠폰 4종" style="width: 100%; border-radius: 8px; margin-bottom: 32px" data-height-listener-added="true">
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px">
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">쿠폰 지급 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/21(금)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 캠페인 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 전체 고객 참여</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 높은 오픈율</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">쿠폰 만료 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/25(화)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 쿠폰 만료 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 만료 리마인드</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 24시간 전 긴급</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">소멸 예정 쿠폰</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/27(목)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 미사용 고객</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 구매율 상승</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 쿠폰 리마인드</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">종료 예정 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/29(토)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 최종 종료 알림</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 최종 전환 유도</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 마지막 알림</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3 style="margin-bottom: 24px">STEP 2: 친구톡 메시지 4종</h3>
+        <p style="font-size: 15px; color: #666; margin-bottom: 32px">
+          알림톡 쿠폰 발송 이후, 고객 참여를 극대화하는 친구톡 크리에이티브 4종을 제안합니다.
+        </p>
+
+        <img src="https://page.gensparksite.com/v1/base64_upload/c6681c8fd5993f0d767562ad87ba352f" alt="블랙프라이데이 친구톡 4종" style="width: 100%; border-radius: 8px; margin-bottom: 32px" data-height-listener-added="true">
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px">
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">-75% 할인율 강조</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/14(금)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드이미지</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 이벤트 내용</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 고급 브랜드 이미지</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 3D 타이포 임팩트</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">UP TO 93% OFF</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/18(화)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드이미지</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 할인율 임팩트</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 화제성 극대화</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 93% 파격 할인</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">최대 77% 할인</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/23(토)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드리스트</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 주말 특가 발송</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 주말 매출 증대</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 이벤트 페이지 노출</p>
+          </div>
+
+          <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+            <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">최대 80% + 스크래치</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>발송일:</strong> 11/26(수)</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드리스트</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>사유:</strong> 마지막 이벤트</p>
+            <p style="font-size: 13px; margin-bottom: 4px"><strong>효과:</strong> 최종 전환 유도</p>
+            <p style="font-size: 13px; margin-bottom: 0"><strong>포인트:</strong> 스크래치 이벤트</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3 style="margin-bottom: 24px">STEP 3: 친구톡 타사 레퍼런스 (와이드이미지형)</h3>
+        <p style="font-size: 15px; color: #666; margin-bottom: 32px">
+          와이드 이미지형 메시지로 브랜드 프리미엄 이미지를 강화하는 레퍼런스 추천입니다.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px">
+          <div>
+            <img src="https://page.gensparksite.com/v1/base64_upload/94abf3e9573538225eedf8c1f55f719f" alt="잇츠스킨 와이드형" style="width: 100%; border-radius: 8px; margin-bottom: 16px" data-height-listener-added="true">
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+              <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">잇츠스킨 - 미니멀 디자인</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드이미지</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>특징:</strong> 3D 타이포그래피</p>
+              <p style="font-size: 13px; margin-bottom: 0"><strong>효과:</strong> 고급 브랜드 이미지</p>
+            </div>
+          </div>
+
+          <div>
+            <img src="https://page.gensparksite.com/v1/base64_upload/36770032b88484f0b1ee93416695ee49" alt="닥터블릿 와이드형" style="width: 100%; border-radius: 8px; margin-bottom: 16px" data-height-listener-added="true">
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+              <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">닥터블릿 - 모델 활용</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 와이드이미지</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>특징:</strong> 모델 이미지 중앙 배치</p>
+              <p style="font-size: 13px; margin-bottom: 0"><strong>효과:</strong> 신뢰도 증대</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3 style="margin-bottom: 24px">STEP 4: 친구톡 타사 레퍼런스 (이미지형)</h3>
+        <p style="font-size: 15px; color: #666; margin-bottom: 32px">
+          일반 이미지형 메시지로 다양한 스타일의 크리에이티브 레퍼런스입니다.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px">
+          <div>
+            <img src="https://page.gensparksite.com/v1/base64_upload/2d5e5255b6b10d6d5c0d9819498dd615" alt="맥스킷 티저" style="width: 100%; border-radius: 8px; margin-bottom: 16px" data-height-listener-added="true">
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+              <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">맥스킷 - 티저</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 세로이미지</p>
+              <p style="font-size: 13px; margin-bottom: 0"><strong>효과:</strong> 기대감 조성</p>
+            </div>
+          </div>
+
+          <div>
+            <img src="https://page.gensparksite.com/v1/base64_upload/081291835cbc069b78de5dd986e9e364" alt="맥드로젤리 83%" style="width: 100%; border-radius: 8px; margin-bottom: 16px" data-height-listener-added="true">
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+              <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">맥드로젤리 - 83%</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 세로이미지</p>
+              <p style="font-size: 13px; margin-bottom: 0"><strong>효과:</strong> 파격 할인 임팩트</p>
+            </div>
+          </div>
+
+          <div>
+            <img src="https://page.gensparksite.com/v1/base64_upload/d5af918bb79384befa75a2582f47172e" alt="디코뷰 90%" style="width: 100%; border-radius: 8px; margin-bottom: 16px" data-height-listener-added="true">
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 8px">
+              <p style="font-size: 14px; margin-bottom: 8px; font-weight: 600">디코뷰 - 90% 앵콜</p>
+              <p style="font-size: 13px; margin-bottom: 4px"><strong>형태:</strong> 세로이미지</p>
+              <p style="font-size: 13px; margin-bottom: 0"><strong>효과:</strong> 마지막 기회 강조</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>MESSAGE TYPE CLASSIFICATION</h2>
+      <div class="type-grid">
+        <div class="type-card">
+          <h3>친구톡 (Friend Talk)</h3>
+          <ul>
+            <li>이미지형 크리에이티브 중심</li>
+            <li>브랜드 톤앤매너 반영</li>
+            <li>시각적 임팩트 극대화</li>
+            <li>수신자 친밀도 높은 메시지</li>
+          </ul>
+          <div class="examples">활용 사례: 티저 메시지, 메인 프로모션, 앵콜 특가</div>
+        </div>
+
+        <div class="type-card">
+          <h3>알림톡 (Alimtalk)</h3>
+          <ul>
+            <li>텍스트 중심 정보 전달</li>
+            <li>쿠폰 발급 및 안내</li>
+            <li>개인화 메시지 활용</li>
+            <li>높은 도달률 및 오픈율</li>
+          </ul>
+          <div class="examples">활용 사례: 쿠폰 4종 발송, 개인 맞춤 혜택 안내</div>
+        </div>
+
+        <div class="type-card">
+          <h3 style="background-color: rgb(244, 218, 88)">BSA 발송 (Business Solution Alimtalk) 마수동 고객 추천</h3>
+          <ul>
+            <li>대량 발송 최적화</li>
+            <li>고객 세그먼트별 발송</li>
+            <li>시스템 연동 자동 발송</li>
+            <li>효율적인 운영</li>
+          </ul>
+          <div class="examples">활용 사례: 시크릿 쿠폰 4단계, 세그먼트별 차등 혜택</div>
+        </div>
+
+        <div class="type-card">
+          <h3>와이드형 (Wide Format)</h3>
+          <ul>
+            <li>가로형 레이아웃</li>
+            <li>프리미엄 비주얼</li>
+            <li>브랜드 가치 상승</li>
+            <li>VIP 고객 타겟</li>
+          </ul>
+          <div class="examples">활용 사례: 고급 브랜드 이미지, 모델 활용 메시지</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>MESSAGE CREATIVE GALLERY</h2>
+
+      <div class="message-card">
+        <h3>1. 티저 메시지 (Teaser)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/2d5e5255b6b10d6d5c0d9819498dd615" alt="맥스킷 블랙프라이데이 50% 할인 티저" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>프로모션 사전 예고</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡 이미지형</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>50% 할인 예고, 기대감 조성</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>대형 할인율 시각적 강조 (50%)</li>
+              <li>혜택 체크리스트 구성</li>
+              <li>명확한 일정 안내 (11/04까지)</li>
+              <li>"맥스킷 기획전" 타이틀</li>
+              <li>선착순 한정 메시지</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>다크 퍼플 배경 + 핑크 포인트 컬러, 상품 이미지 배치</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>2. 메인 프로모션 메시지 (Main Event)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/a87821febd1b520545b9b52263c51191" alt="맥스킷 블랙프라이데이 메인 프로모션 5,000원 쿠폰" style="width: 100%; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p style="background-color: rgb(180, 202, 244)">본 프로모션 시작 (현재 가능)</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡 와이드 이미지형</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>개인화 쿠폰 지급, 즉시 전환 유도</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>추가 쿠폰 5,000원 강조</li>
+              <li>"빠르게 소진 중" 긴급성 메시지</li>
+              <li>명확한 CTA 버튼</li>
+              <li>50% 할인 + 추가 쿠폰 구조</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>블랙 배경, 시안 포인트 컬러, 쿠폰 이미지 중앙 배치</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>3. 리마인드 메시지 (Reminder)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/0ba2027f39f33549e6a3d160d561db9b" alt="맥스킷 블랙프라이데이 리마인드 200명 한정" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>프로모션 종료 임박</p>
+
+            <h4>발송 채널</h4>
+            <p style="background-color: rgb(244, 218, 88)">친구톡 이미지형, BSA (마수동 리스트 추천)</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>마지막 기회 강조, FOMO 자극</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>"200명 한정" 수량 제한</li>
+              <li>"최대 10만원" 총 혜택 강조</li>
+              <li>다양한 이모지 활용 (🔥💰🎁)</li>
+              <li>"20만원 맥스킷 3만원 혜택" 구체적 금액</li>
+              <li>긴급성 극대화</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>퍼플 계열, 감성적 일러스트</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>4. 알림톡 쿠폰 4종 (Segmented Coupons)</h3>
+        <img src="https://page.gensparksite.com/v1/base64_upload/30b39afe2c21f9b83d7871735f889485" alt="쿤달 알림톡 쿠폰 4종 세그먼트" style="width: 100%; border-radius: 8px; margin-bottom: 24px" data-height-listener-added="true">
+        <div class="message-content">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>고객 세그먼트별 차등 발송</p>
+
+            <h4>발송 채널</h4>
+            <p>알림톡 이미지형 (발급 -만료 세트)</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>고객 등급별 맞춤 혜택</p>
+
+            <h4>쿠폰 구성</h4>
+            <ul>
+              <li>전제품 50% 할인 - 전 고객 대상</li>
+              <li>55% 특별 할인 - 신규 회원 대상, 24시간 제한</li>
+              <li>전제품 50% - (재구매) 고객 대상, 오늘 자정 까지</li>
+              <li>11만원 쿠폰팩 - VIP 고객 대상, ~10/16 23:59</li>
+            </ul>
+          </div>
+          <div class="message-info">
+            <h4>디자인 특징</h4>
+            <p>옐로우 배경의 4개 카드 형식</p>
+            <p>각 고객 세그먼트별 차별화된 메시지</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>개인화된 사용자 이름 표시</li>
+              <li>시간 제한으로 긴급성 강조</li>
+              <li>명확한 CTA 버튼 (채널 추가)</li>
+              <li>상세 쿠폰 사용 안내</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>5. BSA 발송 - 시크릿 쿠폰 (Secret Coupon)</h3>
+        <img src="https://page.gensparksite.com/v1/base64_upload/8bcc9bad178962e75c0ecdbcaafef6ea" alt="비바크림 BSA 시크릿 쿠폰 4단계" style="width: 100%; border-radius: 8px; margin-bottom: 24px" data-height-listener-added="true">
+        <div class="message-content">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>단계별 순차 발송</p>
+
+            <h4>발송 채널: 캐러셀 형태 (*별도금액)</h4>
+            <p style="background-color: rgb(244, 218, 88)">BSA (마수동 리스트형 추천)</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>4단계 차등 혜택 구조</p>
+
+            <h4>4단계 구성</h4>
+            <ul>
+              <li>최대 72% 할인 - "하루 남았습니다!"</li>
+              <li>100원에 본품 판매 - "오늘이 마지막입니다"</li>
+              <li>심사권 특가 - "혜택!"</li>
+              <li>사은품 100% 증정 - "경품뿐 사은품까지"</li>
+            </ul>
+          </div>
+          <div class="message-info">
+            <h4>디자인 특징</h4>
+            <p>4개 카드 형식의 가로 배치 구조</p>
+            <p>각 단계별 명확한 메시지와 비주얼 구분</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>단계별 차등 혜택 제시</li>
+              <li>긴급성 메시지 강조</li>
+              <li>VIP 세그먼트 타겟팅</li>
+              <li>사은품 100% 보장</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>6. 친구톡 이미지형 - 83% 할인 (High Impact)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/081291835cbc069b78de5dd986e9e364" alt="맥드로젤리 블랙프라이데이 83% 할인" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>메인 이벤트 기간</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡 이미지형</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>파격 할인율로 임팩트 극대화</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>초대형 "83%" 숫자</li>
+              <li>"선착순 한정수량! 100개 + 사은품 증정"</li>
+              <li>레드 계열 강렬한 비주얼</li>
+              <li>긴급성 및 수량 명시</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>레드 배경, 대형 타이포그래피, 상품 이미지 배치</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>7. 친구톡 이미지형 - 25,000원 쿠폰</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/033928d94254b84c6b4d842cce5e7019" alt="코코마망 블랙프라이데이 25,000원 쿠폰" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>프로모션 중기</p>
+
+            <h4>발송 채널</h4>
+            <p style="background-color: rgb(244, 218, 88)">친구톡, BSA [마수동 리스트 추천]</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>구체적 금액 제시로 가치 전달</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>쿠폰 이미지 중앙 배치 (25,000원)</li>
+              <li>"1년에 단 한번뿐인 블랙프라이데이"</li>
+              <li>기간: 11/22 ~ 12/1</li>
+              <li>쿠폰 비주얼 강조</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>블랙 배경, 쿠폰 중앙 배치, 공식 이벤트 느낌</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>8. 친구톡 이미지형 - 90% 앵콜전</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/d5af918bb79384befa75a2582f47172e" alt="디코뷰 블랙프라이데이 90% 앵콜전" style="width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>프로모션 종료 전</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>마지막 기회 강조, 최대 할인율</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>"90% up to" 최고 할인율</li>
+              <li>"1년에 단 한번! 마지막 앵콜전"</li>
+              <li>다양한 혜택 나열</li>
+              <li>"BLACK FRIDAY" 타이틀</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>핑크 계열, 페미닌한 비주얼</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>9. 와이드형 - 미니멀 디자인 (Premium)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/94abf3e9573538225eedf8c1f55f719f" alt="잇츠스킨 블랙프라이데이 75% 할인" style="width: 100%; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>VIP 고객 대상</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡 와이드형</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>고급스러운 브랜드 이미지</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>~75% 할인 블프/패밀리 특가 초대로 시선 집중</li>
+              <li>짧고 임팩트 있는 메시지</li>
+              <li>3D 타이포그래피</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>블랙 미니멀 톤, 3D 렌더링, 고급스러운 레이아웃</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card">
+        <h3>10. 와이드형 - 모델 활용 (Trust Building)</h3>
+        <div class="message-content">
+          <img src="https://page.gensparksite.com/v1/base64_upload/36770032b88484f0b1ee93416695ee49" alt="닥터블릿 블랙프라이데이 80% 할인 1+1+1" style="width: 100%; border-radius: 8px" data-height-listener-added="true">
+          <div class="message-info">
+            <h4>발송 시점</h4>
+            <p>메인 프로모션</p>
+
+            <h4>발송 채널</h4>
+            <p>친구톡 와이드형</p>
+
+            <h4>메시지 컨셉</h4>
+            <p>모델 이미지로 신뢰도 증대</p>
+
+            <h4>주요 요소</h4>
+            <ul>
+              <li>~80% 할인 1년 딱 1번 역대급 혜택</li>
+              <li>1+1+1 다층 혜택 구조</li>
+              <li>모델 이미지 활용 (신뢰성 높아짐)</li>
+            </ul>
+
+            <h4>디자인 특징</h4>
+            <p>퍼플 계열, 모델 중앙 배치, 프리미엄 느낌</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>PROJECT SPECIFICATIONS</h2>
+      <div class="specs-grid">
+        <div class="specs-item">
+          <h3>발송 규모</h3>
+          <ul>
+            <li>총 발송 기간: 36일</li>
+            <li style="background-color: rgb(244, 218, 88)">발송 채널: 3개 (친구톡, 알림톡, BSA : 5일전 리스트)</li>
+            <li>크리에이티브 제작: 10종+</li>
+          </ul>
+
+          <h3>채널별 구성</h3>
+          <ul>
+            <li>친구톡: 이미지형 크리에이티브 6종</li>
+            <li>알림톡: 텍스트형 메시지 4종</li>
+            <li>BSA 발송: 시스템 연동 자동 발송</li>
+          </ul>
+        </div>
+
+        <div class="specs-item">
+          <h3>메시지 유형 추천</h3>
+          <ul>
+            <li>티저 메시지: 2종</li>
+            <li style="background-color: rgb(244, 218, 88)">메인 프로모션: 4종</li>
+            <li style="background-color: rgb(244, 218, 88)">리마인드: 2종</li>
+            <li style="background-color: rgb(244, 218, 88)">쿠폰 발급: 4종</li>
+          </ul>
+
+          <h3>세그먼트 구성</h3>
+          <ul>
+            <li>신규 고객</li>
+            <li>기존 고객</li>
+            <li>휴면 고객</li>
+            <li>VIP 고객</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing">
+      <h2>감사합니다</h2>
+      <p>이 레퍼런스는 블랙프라이데이 캠페인 발송 계획 작업물입니다.</p>
+    </div>
+  
+
+</body></html>
